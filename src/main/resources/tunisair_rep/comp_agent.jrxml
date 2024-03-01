@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="comp_agnet" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cbf3d402-34b6-4416-881b-222341f932ca">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="nomPrenom" class="java.lang.String"/>
+	<parameter name="matricule" class="java.lang.Integer"/>
+	<parameter name="comprubsource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="peride1" class="java.lang.String"/>
+	<parameter name="peride2" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="86" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="40" uuid="48144b39-a121-462b-8e8b-6c4acf05adee"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comparatif par Agent]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="130" y="50" width="60" height="30" backcolor="#99D1D0" uuid="ab038867-501a-487a-84fa-9b222bee3439">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="190" y="50" width="260" height="30" backcolor="#99D1D0" uuid="d36902b4-699b-45c7-8b4a-3cf3d94713eb">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</rectangle>
+			<textField>
+				<reportElement x="194" y="50" width="250" height="30" uuid="99726105-6ebc-4cf2-838a-a3dc670bc67f"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nomPrenom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="139" y="50" width="47" height="30" uuid="addbbef7-526f-4bb7-9f83-9089dfdcbd33"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{matricule}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="231" splitType="Stretch">
+			<subreport>
+				<reportElement x="10" y="10" width="535" height="209" uuid="cf491edb-c513-44a2-98e5-5e1c6f1d9b56"/>
+				<subreportParameter name="subcomprubsource">
+					<subreportParameterExpression><![CDATA[$P{comprubsource}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sub_peride1">
+					<subreportParameterExpression><![CDATA[$P{peride1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sub_peride2">
+					<subreportParameterExpression><![CDATA[$P{peride2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA["d:\\sub_comp_agent.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="41" splitType="Stretch">
+			<textField>
+				<reportElement x="483" y="2" width="40" height="30" uuid="156805be-c41c-4b1d-a85e-d3d4d941dcd1"/>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="430" y="2" width="50" height="30" uuid="00c41b5f-592a-41c9-9a66-b0f844dae0db"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Page]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

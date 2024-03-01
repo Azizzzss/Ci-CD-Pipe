@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="comparatif_paie" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="88e44855-3b96-4923-aa3a-ad70aecb27f2">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="comparatifpaiesource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="peride1" class="java.lang.String"/>
+	<parameter name="peride2" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="30" uuid="57532e41-3108-4fd6-a4a2-6857b5804881"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMPRARATIF GENERAL DE LA PAIE
+]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="167" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="10" width="555" height="110" uuid="4ba24db2-70ea-470e-a197-fe84625db47e"/>
+				<subreportParameter name="sub_comparatifpaiesource">
+					<subreportParameterExpression><![CDATA[$P{comparatifpaiesource}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sub_peride1">
+					<subreportParameterExpression><![CDATA[$P{peride1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sub_peride2">
+					<subreportParameterExpression><![CDATA[$P{peride2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA["d:\\sub_comparatif_paie.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="483" y="2" width="40" height="30" uuid="0bafba57-24e8-4307-8dfb-a465863e19b3"/>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="430" y="2" width="50" height="30" uuid="89411b5e-7e81-4bab-98c3-5e4e0727719c"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Page]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

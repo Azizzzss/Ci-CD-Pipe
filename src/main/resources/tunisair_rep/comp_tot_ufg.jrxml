@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="comp_tot_ufg" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1fef884e-1bf5-42d9-81c0-fb94f5a78804">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="comptotsource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="periode1" class="java.lang.String"/>
+	<parameter name="periode2" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="7" width="555" height="30" uuid="311f76bd-6728-4e6f-99a8-4d9226bd2476"/>
+				<textElement textAlignment="Center">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMPARAISON DE LA PAIE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="260" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="20" width="540" height="170" uuid="0eca0599-1f63-42fb-9122-dfa430c49b6e"/>
+				<subreportParameter name="subcomptotsource">
+					<subreportParameterExpression><![CDATA[$P{comptotsource}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sub_periode1">
+					<subreportParameterExpression><![CDATA[$P{periode1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sub_periode2">
+					<subreportParameterExpression><![CDATA[$P{periode2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA["d:\\sub_comp_tot_ufg.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="483" y="2" width="40" height="30" uuid="9f0ff0b8-3073-46a0-89f7-89294d247ea8"/>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="430" y="2" width="50" height="30" uuid="e202f6d8-8668-4bf6-bd38-40e6f82052c8"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Page]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,50 @@
+stages:
+  - sonarqube-check
+  - sonarqube-vulnerability-report
+  - testTelnet
+
+sonarqube-check:
+  stage: sonarqube-check
+  image: maven:3-eclipse-temurin-17
+  variables:
+    SONAR_USER_HOME: "D:\\WORK_SPACE\\microservice_report\\.sonar"  # Defines the location of the analysis task cache
+    GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script:
+    - mvn verify sonar:sonar
+  allow_failure: true
+  only:
+    - merge_requests
+    - master
+    - main
+    - develop
+# image tejbed men ubunto telnet biha loàcalhost9000
+
+testTelnet:
+  stage: testTelnet
+  variables:
+    DOCKER_IMAGE_NAME: "docker-test-telnet"
+    DOCKER_IMAGE_TAG: "latest"
+  script:
+    - telnet localhost 9000
+
+sonarqube-vulnerability-report:
+  stage: sonarqube-vulnerability-report
+  image: sonarqube-with-curl:latest # Use the custom image with curl
+  script:
+    - 'curl -u "sqp_a9e7b845a6aaf1117f0f6305d2293ea9fd0659b3:" "http://127.0.0.1:9000/api/issues/gitlab_sast_export?projectKey=testSonar&branch=${CI_COMMIT_BRANCH}&pullRequest=${CI_MERGE_REQUEST_IID}" -o gl-sast-sonar-report.json'
+  allow_failure: true
+  only:
+    - merge_requests
+    - master
+    - main
+    - develop
+  artifacts:
+    expire_in: 1 day
+    reports:
+      sast: gl-sast-sonar-report.json
+  dependencies:
+    - sonarqube-check

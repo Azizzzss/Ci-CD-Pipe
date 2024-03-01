@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="comp_rub" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d874ab64-db52-4e27-be19-d6040bde4cf2">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="code" class="java.lang.String"/>
+	<parameter name="comprubsource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="crps" class="java.lang.String"/>
+	<parameter name="sum_ecart" class="java.lang.Double"/>
+	<parameter name="count_agent" class="java.lang.Integer"/>
+	<parameter name="peride1" class="java.lang.String"/>
+	<parameter name="peride2" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="-13" y="0" width="580" height="40" uuid="9fd49885-a06a-4f76-9779-ead6e19c1de0"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comparatif par rubrique]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="7" y="40" width="541" height="31" backcolor="#99D1D0" uuid="f4ab221b-192b-467b-9570-47ef575a1e4b"/>
+			</rectangle>
+			<textField>
+				<reportElement x="50" y="41" width="470" height="30" uuid="eac4e27a-3642-4f03-aff9-b0ab05cf1ac2"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{code}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="249" splitType="Stretch">
+			<subreport>
+				<reportElement x="7" y="10" width="537" height="200" uuid="46820710-628a-4636-856f-1682e1565616"/>
+				<subreportParameter name="subcomprubsource">
+					<subreportParameterExpression><![CDATA[$P{comprubsource}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sub_crps">
+					<subreportParameterExpression><![CDATA[$P{crps}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sub_sum_ecart">
+					<subreportParameterExpression><![CDATA[$P{sum_ecart}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sub_count_agent">
+					<subreportParameterExpression><![CDATA[$P{count_agent}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sub_peride1">
+					<subreportParameterExpression><![CDATA[$P{peride1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sub_peride2">
+					<subreportParameterExpression><![CDATA[$P{peride2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA["d:\\sub_comp_rub.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="480" y="10" width="40" height="30" uuid="e669cbb1-4cc1-4844-a21f-af0ad521a9d5"/>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="380" y="10" width="100" height="30" uuid="20e9cdce-a068-4f4b-a728-30a3984187ae"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Page]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

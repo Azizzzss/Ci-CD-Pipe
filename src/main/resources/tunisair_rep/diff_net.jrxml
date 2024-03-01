@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="diff_net" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="97df156e-d9ed-47c7-9f90-f4aa930c47cb">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="ufg" class="java.lang.String"/>
+	<parameter name="diffnetsource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="annee" class="java.lang.Integer"/>
+	<parameter name="mois" class="java.lang.Integer"/>
+	<parameter name="title_rep" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="151" splitType="Stretch">
+			<staticText>
+				<reportElement x="57" y="10" width="440" height="30" uuid="36a2f197-1c87-49c0-9b63-9dbded32e139"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ETAT DES BULLETINS DESEQUILIBRERS]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="157" y="50" width="241" height="41" uuid="36cb63d4-df18-4b96-a08c-79ef39abe995"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="165" y="107" width="25" height="30" uuid="39eaf4a9-e84e-410b-aa33-99222186e6e8"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ufg:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="530" y="112" width="40" height="30" uuid="cbbf6958-eaaa-4105-8d2b-c399cc93a03d"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="110" width="100" height="30" uuid="d7075f6a-29c2-4c10-bb64-9c264d1edeac"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ufg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="55" width="40" height="30" uuid="53ad98f4-06e7-4b4f-a990-50e563f90cf8"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{annee}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="260" y="55" width="10" height="30" uuid="b0425cc8-77db-4af1-a8b8-25dec29ddf60"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="270" y="55" width="100" height="30" uuid="bc0f9405-e01b-4e2d-a040-e4fbac76a0fd"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{mois}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="445" y="110" width="100" height="30" uuid="95185e31-247c-497c-8f97-39bbf6d3de80"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Page Number:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="118" splitType="Stretch">
+			<subreport>
+				<reportElement x="10" y="14" width="430" height="56" uuid="2b083fb2-6e58-44cd-81fa-85532fea5ed7"/>
+				<subreportParameter name="sub_diffnetsource">
+					<subreportParameterExpression><![CDATA[$P{diffnetsource}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="sub_annee">
+					<subreportParameterExpression><![CDATA[$P{annee}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA["d:\\sub_diff_net.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

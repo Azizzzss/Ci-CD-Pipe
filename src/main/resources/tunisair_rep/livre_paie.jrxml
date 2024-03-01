@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.0.final using JasperReports Library version 6.21.0-4f56c4f36cd19e17675219a9ac4692d5f0f13b06  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MainReport-FichePrecense" pageWidth="750" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f694fa85-9dd3-469f-a997-3253c2ded1ba">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="livrepaiesource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="FileTitle" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="154">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="750" height="25" backcolor="#CFCDD1" uuid="b1698fb7-9fb7-41f5-8dda-8e56b873e810"/>
+				<staticText>
+					<reportElement x="640" y="2" width="105" height="20" forecolor="#4D4D4D" uuid="565c67a1-3a41-4446-b8d7-d72870c99bdd"/>
+					<textElement textAlignment="Center">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[ SIGA Reports ]]></text>
+				</staticText>
+			</frame>
+			<line>
+				<reportElement x="305" y="70" width="100" height="1" forecolor="#3B3A39" backcolor="#3B3A39" uuid="0d514e27-a054-4f6f-afd9-4217058576cd">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+			<textField>
+				<reportElement x="0" y="30" width="710" height="37" uuid="ce1ebc05-e871-4fde-9241-b1eb41c72493">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FileTitle}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="78" y="20" width="554" height="1" forecolor="#3B3A39" backcolor="#3B3A39" uuid="d8bbe5b2-2f46-40f8-b9f1-6ea60c3bc0a0">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="0" y="80" width="710" height="30" uuid="9d6da45d-d74d-4121-8352-1d1328a12b75"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="150" splitType="Stretch">
+			<subreport>
+				<reportElement x="-11" y="7" width="720" height="80" uuid="cd1b4a34-4eb4-49c8-8aa9-e9aab218868e">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<subreportParameter name="subreport_source">
+					<subreportParameterExpression><![CDATA[$P{livrepaiesource}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA["d:\\sub_livre_paie.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="350" y="20" width="100" height="20" uuid="4c2e33a1-5963-40ff-822a-3d9168ad3ead"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

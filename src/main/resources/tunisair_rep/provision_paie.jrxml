@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="provision_paie" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="da38b860-9682-4e87-8e9e-3ee602d97b6a">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="provisionsource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="ufg" class="java.lang.String"/>
+	<parameter name="annee" class="java.lang.Integer"/>
+	<parameter name="mois" class="java.lang.Integer"/>
+	<parameter name="gufg" class="java.lang.String"/>
+	<parameter name="crps" class="java.lang.String"/>
+	<parameter name="reference" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="147" splitType="Stretch">
+			<staticText>
+				<reportElement x="140" y="10" width="250" height="30" uuid="8afe072e-9903-4810-9bee-ba6c8873c822"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Etat des Bulletins Négatifs]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="180" y="50" width="80" height="25" backcolor="#C7C1C1" uuid="79b9b9da-3b6b-48a0-9743-24e7ae526113"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="266" y="50" width="114" height="25" uuid="d8c2c3eb-6277-4798-a918-273d3df5da22"/>
+			</rectangle>
+			<textField>
+				<reportElement x="270" y="52" width="100" height="20" uuid="7f59b753-50bf-4aa0-a337-f6ab8459ddf6"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ufg}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="180" y="77" width="200" height="20" uuid="e2536cd6-690d-4d40-8fb1-f40977b611f0"/>
+			</rectangle>
+			<textField>
+				<reportElement x="185" y="77" width="91" height="20" uuid="a80958b4-aa54-4422-9d54-43f844acd7ec"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{gufg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="53" width="70" height="20" uuid="97c1f74f-fc5f-4091-ab8f-6b5deadce0be"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reference}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="45" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="254" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="30" width="520" height="170" uuid="1c3aad4a-e345-48ce-b301-3d709ce62d58"/>
+				<subreportParameter name="subprovisionsource">
+					<subreportParameterExpression><![CDATA[$P{provisionsource}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA["d:\\sub_provision_paie.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="7" y="10" width="420" height="30" uuid="90b79afc-e375-4ed4-8b69-231323c7d3c4"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{crps}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
